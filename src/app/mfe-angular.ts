@@ -21,7 +21,7 @@ type ShellContext = {
 
 @Component({
   standalone: true,
-  selector: 'mfe-hello-root',
+  selector: 'mfe-angular-root',
   imports: [ZardButtonComponent],
   encapsulation: ViewEncapsulation.ShadowDom,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,7 +42,7 @@ type ShellContext = {
     </div>
   `,
 })
-export class MfeHello {
+export class MfeAngular {
   private readonly sanitizer = inject(DomSanitizer);
 
   private readonly ctxSig = signal<ShellContext | null>(null);

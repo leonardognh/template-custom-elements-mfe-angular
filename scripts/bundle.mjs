@@ -23,5 +23,5 @@ const files = readdirSync(distDir)
 
 const out = files.map((f) => readFileSync(join(distDir, f), 'utf8')).join('\n;\n');
 
-writeFileSync(join(distDir, 'mfe-hello.js'), out, 'utf8');
-console.log('✅ Gerado:', join(distDir, 'mfe-hello.js'));
+writeFileSync(join(distDir, 'mfe-angular.js'), out, 'utf8');
+console.log('✅ Gerado:', join(distDir, 'mfe-angular.js'));
