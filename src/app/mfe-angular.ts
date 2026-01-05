@@ -10,14 +10,7 @@ import {
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ZardButtonComponent } from './shared/components/button/button.component';
 import { environment } from 'src/environments/environment';
-
-type ShellContext = {
-  assetBase: string;
-  theme: 'light' | 'dark';
-  capabilities?: { navigate: (to: string) => void };
-  user?: { id: string };
-  locale?: string;
-};
+import { ShellContext } from '@templates-micro-frontends/bridge';
 
 @Component({
   standalone: true,
