@@ -31,7 +31,8 @@ import { ShellContext } from '@templates-micro-frontends/bridge';
       </div>
       <div class="text-xs opacity-70">assetBase: {{ ctx()?.assetBase ?? '-' }}</div>
 
-      <z-button (click)="go()">Ir pra /react</z-button>
+      <z-button (click)="go('/react')">Ir pra /react</z-button>
+      <z-button (click)="go('/vue')">Ir pra /vue</z-button>
     </div>
   `,
 })
@@ -55,7 +56,7 @@ export class MfeAngular {
     this.ctxSig.set(value);
   }
 
-  go() {
-    this.ctxSig()?.capabilities?.navigate('/react');
+  go(path: string) {
+    this.ctxSig()?.capabilities?.navigate(path);
   }
 }
