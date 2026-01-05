@@ -2,14 +2,16 @@ import { createApplication } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { EnvironmentInjector } from '@angular/core';
 import { MfeAngular } from './app/mfe-angular';
+import { appConfig } from '@/app.config';
 
 (async () => {
-  const app = await createApplication({ providers: [] });
-  const injector = app.injector.get(EnvironmentInjector);
+  const app = await createApplication(appConfig);
 
-  const el = createCustomElement(MfeAngular, { injector });
+  const tag = 'mfe-angular';
 
-  customElements.define('mfe-angular', el);
-
-  window.dispatchEvent(new CustomEvent('mfe:ready', { detail: { id: 'hello', version: '0.0.1' } }));
+  if (!customElements.get(tag)) {
+    const el = createCustomElement(MfeAngular, { injector: app.injector });
+    customElements.define(tag, el);
+    window.dispatchEvent(new CustomEvent('mfe:ready', { detail: { id: tag, version: '0.0.1' } }));
+  }
 })();
